@@ -1,0 +1,437 @@
+/* Variables */
+body {
+    --color: #000;
+    --background-color: #fff;
+    --border-color: #000;
+    --hero-color: #fff;
+    --hero-background-color: dodgerblue;
+    --link-color: #000;
+    --link-background-color: #fff;
+    --link-hover-color: #fff;
+    --link-hover-background-color: #000;
+    --list-item-color: #000;
+    --list-item-background-color: #000;
+    --blockquote-border-color: #000;
+    --table-header-color: #fff;
+    --table-header-background-color: rgba(0, 0, 0);
+    --table-row-color: #000;
+    --table-row-background-color: #fff;
+    --hr-color: #000;
+    --details-border-color: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        --color: #fff;
+        --background-color: #000;
+        --border-color: #fff;
+        --hero-color: #fff;
+        --hero-background-color: dodgerblue;
+        --link-color: #fff;
+        --link-background-color: #000;
+        --link-hover-color: #000;
+        --link-hover-background-color: #fff;
+        --list-item-color: #fff;
+        --list-item-background-color: #fff;
+        --blockquote-border-color: #fff;
+        --table-header-color: #000;
+        --table-header-background-color: rgba(255, 255, 255);
+        --table-row-color: #fff;
+        --table-row-background-color: #000;
+        --hr-color: #fff;
+        --details-border-color: #fff;
+    }
+}
+
+/* Stylesheet */
+:root {
+    color-scheme: light dark; /* both supported */
+}
+
+* {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+body {
+    margin: auto auto 1em;
+
+    padding: 0 max(min(calc((100% - 768px) / 2), 20%), 5px);
+    width: max(20%, 768px);
+    background-color: var(--background-color);
+    overflow-x: clip;
+}
+
+@media (max-width: 768px) {
+    body {
+        width: calc(100% - 10px);
+        padding: 0 5px;
+    }
+}
+
+/* Hero */
+h1::before {
+    content: "";
+    background-color: var(--hero-background-color);
+    position: absolute;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    right: calc((100vw - 100%) / -2);
+    left: calc((100vw - 100%) / -2);
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    padding: 0.47em 0;
+    margin: 0;
+    z-index: 2;
+
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    color: var(--hero-color);
+}
+
+@media screen and (min-width: 768px) {
+    h1 {
+        position: sticky;
+        top: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    h1::before {
+        height: 98px;
+    }
+}
+
+/* Headings */
+h2 {
+    font-size: 2em;
+    font-weight: 700;
+    margin: 0.83em 0;
+
+    color: var(--color);
+}
+
+h3 {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin: 1em 0;
+
+    color: var(--color);
+}
+
+h4 {
+    font-size: 1.25em;
+    font-weight: 700;
+    margin: 1.33em 0;
+
+    color: var(--color);
+}
+
+h5 {
+    font-size: 1em;
+    font-weight: 700;
+    margin: 1.67em 0;
+
+    color: var(--color);
+}
+
+h6 {
+    font-size: 0.9em;
+    font-weight: 700;
+    margin: 2.33em 0;
+
+    color: var(--color);
+}
+
+/* Paragraphs */
+p {
+    margin: 1em 0;
+
+    color: var(--color);
+}
+
+/* Divs */
+div {
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+
+    color: var(--color);
+}
+
+div > *:first-child {
+    width: calc(50% - 10px);
+    margin-right: 10px;
+}
+
+div > *:last-child {
+    width: calc(50% - 10px);
+    margin-left: 10px;
+}
+
+div > details > * {
+    width: calc(100% - 12px);
+}
+
+details > div {
+    width: calc(100% - 12px);
+}
+
+@media screen and (max-width: 768px) {
+    div {
+        display: block;
+    }
+
+    div > *:first-child {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    div > *:last-child {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+/* Image */
+img {
+    border-radius: 10px;
+    max-width: 100%;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+/* Links */
+a {
+    padding: 2px 7px;
+    color: var(--link-color);
+    background-color: var(--link-background-color);
+    text-decoration: none;
+    border: 1px solid var(--link-color);
+    border-radius: 10px;
+    justify-content: center;
+}
+
+a:focus {
+    background-color: var(--link-background-color);
+    color: var(--link-color);
+}
+
+a:active {
+    background-color: var(--link-background-color);
+    color: var(--link-color);
+}
+
+a:hover {
+    background-color: var(--link-hover-background-color);
+    color: var(--link-hover-color);
+}
+
+p > a {
+    padding: 3px 7px;
+    margin-left: -3px;
+    margin-right: -3px;
+    color: var(--link-color);
+    background-color: var(--link-background-color);
+    text-decoration: revert;
+    text-decoration-color: var(--link-color);
+    text-decoration-thickness: 2px;
+    border: none;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+p > a:hover {
+    background-color: var(--link-hover-background-color);
+    color: var(--link-hover-color);
+    text-decoration: revert;
+    text-decoration-color: var(--link-hover-color);
+    text-decoration-thickness: 2px;
+    border-radius: 10px;
+}
+
+/* Lists */
+ol, ul {
+    list-style: none;
+    padding: 0 0 0 0.5em;
+    margin-bottom: 1.3em;
+}
+
+li {
+    margin: 0.7em 0;
+    color: var(--color);
+}
+
+ol {
+    counter-reset: li-counter;
+}
+ol li {
+    counter-increment: li-counter;
+}
+
+ul li::before {
+    content: ' ';
+    color: var(--list-item-color);
+    background-color: var(--list-item-background-color);
+    width: 10px;
+    height: 10px;
+
+    border: 2px solid var(--list-item-color);
+    border-radius: 50px;
+    display: inline-flex;
+
+    padding: 4px;
+    margin: 0px 16px 0px 14px;
+}
+
+ol li::before {
+    content: counter(li-counter);
+    width: 20px;
+    height: 20px;
+
+    color: var(--list-item-color);
+    border: 2px solid var(--list-item-color);
+    border-radius: 50px;
+    display: inline-flex;
+    justify-content: center;
+    padding: 4px 4px 6px;
+    margin: 0px 10px;
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 5px solid var(--blockquote-border-color);
+    padding: 0 0 0 1em;
+    margin: 1em 0;
+    color: var(--color);
+}
+
+blockquote p {
+    margin: 0;
+}
+
+/* Tables */
+table {
+    border-collapse: separate;
+    border-spacing: 0 0.3em;
+    width: 100%;
+    table-layout: fixed;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+tr {
+    margin-bottom: 1em;
+    border-radius: 10px;
+}
+
+td {
+    padding: 0.5em 0.5em 0.5em 1em;
+    margin-bottom: 1em;
+    background: var(--table-row-background-color);
+    color: var(--table-row-color);
+    border-top: 1px solid var(--table-row-color);
+    border-bottom: 1px solid var(--table-row-color);
+}
+
+td:first-child {
+    border-left: 1px solid var(--table-row-color);
+}
+
+td:last-child {
+    border-right: 1px solid var(--table-row-color);
+}
+
+th {
+    padding: 0.5em 0.5em 0.5em 1em;
+    background-color: var(--table-header-background-color);
+    color: var(--table-header-color);
+    text-align: left;
+}
+
+th:first-child, td:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+th:last-child, td:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* Horizontal Rule */
+hr {
+    height: 2px;
+    margin: 5px 0;
+    background-color: var(--hr-color);
+    border: none;
+}
+
+/* Details, Summary */
+details {
+    margin: 1em 0;
+}
+
+details > * {
+    margin-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+details > *:not(summary) {
+    border: 1px solid var(--details-border-color);
+    border-radius: 10px;
+}
+
+details > summary {
+    cursor: pointer;
+
+    border: 1px solid var(--details-border-color);
+    border-radius: 10px;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+details > summary > * {
+    display: inline;
+}
+
+details[open] > summary {
+    cursor: pointer;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Highlight */
+mark {
+    background-color: var(--background-color);
+    color: var(--color);
+    padding-left: 2px;
+    padding-right: 3px;
+    padding-top: 2px;
+    border-radius: 5px;
+    border: 1px dashed var(--color);
+}
+
+/* Removed */
+u {
+    text-decoration: none;
+}

@@ -1,0 +1,24 @@
+.navigation-files {
+    overflow-y: scroll;
+    overflow-x: clip;
+}
+
+.navigation-files > * {
+    padding-left: 1.2em;
+}
+
+.navigation-files details, .navigation-files details > * {
+    border: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+.navigation-files details > *:not(:first-child) {
+    padding-left: 2em;
+}
+
+.navigation-files details {
+    margin-left: -1.2em;
+}
